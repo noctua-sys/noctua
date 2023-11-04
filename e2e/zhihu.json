@@ -1,0 +1,76 @@
+{
+    "num_sites": 3,
+
+    "login": {
+        "username": "admin",
+        "password": "kaima233",
+        "url": "api/v1/login/"
+    },
+    
+    "write_ops": [
+        "CreateAnswer",
+        "CreateTopic",
+        "CreateQuestion",
+        "CreateUserVote", "DeleteUserVote",
+        "CreateUserFlowQuestion", "DeleteUserFlowQuestion",
+        "CreateUserFav", "DeleteUserFav"
+    ],
+
+    "read_ops": [
+        "ListAnswer", "GetAnswer",
+        "ListTopic", "GetTopic",
+        "ListQuestion", "GetQuestion",
+        "ListUserVote", "GetUserVote",
+        "ListUserFlowQuestion", "GetUserFlowQuestion",
+        "ListUserFav", "GetUserFav"
+    ],
+
+    "endpoints": {
+        "ListAnswer": {"method": "GET", "url": "api/v1/answers/"},
+        "GetAnswer": {"method": "GET", "url": "api/v1/answers/{}/", "query_params": ["randint"]},
+        "ListTopic": {"method": "GET", "url": "api/v1/topics/"},
+        "GetTopic": {"method": "GET", "url": "api/v1/topics/{}/", "query_params": ["randint"]},
+        "ListQuestion": {"method": "GET", "url": "api/v1/questions/"},
+        "GetQuestion": {"method": "GET", "url": "api/v1/questions/{}/", "query_params": ["randint"]},
+        "ListUserVote": {"method": "GET", "url": "api/v1/votes/"},
+        "GetUserVote": {"method": "GET", "url": "api/v1/votes/{}/", "query_params": ["randint"]},
+        "ListUserFlowQuestion": {"method": "GET", "url": "api/v1/flow_questions/"},
+        "GetUserFlowQuestion": {"method": "GET", "url": "api/v1/flow_questions/{}/", "query_params": ["randint"]},
+        "ListUserFav": {"method": "GET", "url": "api/v1/favs/"},
+        "GetUserFav": {"method": "GET", "url": "api/v1/favs/{}/", "query_params": ["randint"]},
+
+        "CreateAnswer": {"method": "POST", "url": "api/v1/answers/", "data": {"text": "randshortstr", "question": "randint"}},
+        "DeleteAnswer": {"method": "DELETE", "url": "api/v1/answers/{}/", "query_params": ["randint"]},
+        "CreateTopic": {"method": "POST", "url": "api/v1/topics/", "data": {"name": "randshortstr", "desc": "randshortstr", "topic_type": "choice 1 2 3"}},
+        "DeleteTopic": {"method": "DELETE", "url": "api/v1/topics/{}/", "query_params": ["randint"]},
+        "CreateQuestion": {"method": "POST", "url": "api/v1/questions/", "data": {"title": "randshortstr", "topic": "randint"}},
+        "DeleteQuestion": {"method": "DELETE", "url": "api/v1/questions/{}/", "query_params": ["randint"]},
+        "CreateUserVote": {"method": "POST", "url": "api/v1/votes/", "data": {"answer": "randint", "vote_type": "pick up down"}},
+        "DeleteUserVote": {"method": "DELETE", "url": "api/v1/votes/{}/", "query_params": ["randint"]},
+        "CreateUserFlowQuestion": {"method": "POST", "url": "api/v1/flow_questions/", "data": {"question": "randint"}},
+        "DeleteUserFlowQuestion": {"method": "DELETE", "url": "api/v1/flow_questions/{}/", "query_params": ["randint"]},
+        "CreateUserFav": {"method": "POST", "url": "api/v1/favs/", "data": {"answer": "randint"}},
+        "DeleteUserFav": {"method": "DELETE", "url": "api/v1/favs/{}/", "query_params": ["randint"]}
+    },
+
+    "restriction_set": [
+        ["DeleteUserVote", "CreateUserFlowQuestion"],
+        ["DeleteUserVote", "CreateUserFav"],
+        ["CreateAnswer", "CreateAnswer"],
+        ["CreateAnswer", "CreateQuestion"],
+        ["CreateUserFav", "CreateUserFav"],
+        ["CreateUserFlowQuestion", "CreateUserFlowQuestion"],
+        ["CreateQuestion", "CreateQuestion"],
+        ["CreateQuestion", "DeleteUserVote"],
+        ["CreateQuestion", "CreateUserFlowQuestion"],
+        ["CreateQuestion", "DeleteUserFlowQuestion"],
+        ["CreateQuestion", "CreateUserFav"],
+        ["CreateQuestion", "DeleteUserFav"],
+        ["CreateQuestion", "DeleteUserVote"],
+        ["CreateQuestion", "CreateUserVote"],
+        ["CreateTopic", "CreateTopic"],
+        ["CreateTopic", "CreateQuestion"],
+        ["CreateUserVote", "CreateUserVote"]
+    ]
+
+}

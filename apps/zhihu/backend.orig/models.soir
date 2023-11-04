@@ -1,0 +1,164 @@
+You are using a customized version of Django 2.2.28.dev20220320135238
+/Users/kaima/src/soir/apps/zhihu/backend
+You are using a customized version of djangorestframework 3.13.1
+model Question.Answer {
+   id: integer [primary,unique];
+   text: string [];
+   publish: datetime [];
+   created: datetime [];
+   updated: datetime [];
+   status: string [];
+   vote: integer [];
+   anonymous: boolean [];
+   flows: integer [];
+}
+model Question.Comment {
+   id: integer [primary,unique];
+}
+model Question.Question {
+   id: integer [primary,unique];
+   title: string [];
+   body: string [optional];
+   created: datetime [];
+   updated: datetime [];
+   views: integer [];
+   anonymous: boolean [];
+   flows: integer [];
+}
+model Question.Topic {
+   id: integer [primary,unique];
+   name: string [];
+   desc: string [];
+   topic_type: integer [];
+   flows: integer [];
+}
+model Account.UserProfile {
+   id: integer [primary,unique];
+   password: string [];
+   last_login: datetime [optional];
+   is_superuser: boolean [];
+   username: string [unique];
+   first_name: string [];
+   last_name: string [];
+   is_staff: boolean [];
+   is_active: boolean [];
+   date_joined: datetime [];
+   mobile: string [];
+   email: string [];
+   views: integer [];
+   desc: string [];
+   gender: string [];
+}
+model auth.AbstractUser {
+   password: string [];
+   last_login: datetime [optional];
+   is_superuser: boolean [];
+   username: string [unique];
+   first_name: string [];
+   last_name: string [];
+   email: string [];
+   is_staff: boolean [];
+   is_active: boolean [];
+   date_joined: datetime [];
+}
+model Account.UserProfile {
+   id: integer [primary,unique];
+   password: string [];
+   last_login: datetime [optional];
+   is_superuser: boolean [];
+   username: string [unique];
+   first_name: string [];
+   last_name: string [];
+   is_staff: boolean [];
+   is_active: boolean [];
+   date_joined: datetime [];
+   mobile: string [];
+   email: string [];
+   views: integer [];
+   desc: string [];
+   gender: string [];
+}
+model Account.VerifyCode {
+   id: integer [primary,unique];
+   code: string [];
+   mobile: string [];
+   created: datetime [];
+}
+model Question.Answer {
+   id: integer [primary,unique];
+   text: string [];
+   publish: datetime [];
+   created: datetime [];
+   updated: datetime [];
+   status: string [];
+   vote: integer [];
+   anonymous: boolean [];
+   flows: integer [];
+}
+model Question.Question {
+   id: integer [primary,unique];
+   title: string [];
+   body: string [optional];
+   created: datetime [];
+   updated: datetime [];
+   views: integer [];
+   anonymous: boolean [];
+   flows: integer [];
+}
+model Account.UserProfile {
+   id: integer [primary,unique];
+   password: string [];
+   last_login: datetime [optional];
+   is_superuser: boolean [];
+   username: string [unique];
+   first_name: string [];
+   last_name: string [];
+   is_staff: boolean [];
+   is_active: boolean [];
+   date_joined: datetime [];
+   mobile: string [];
+   email: string [];
+   views: integer [];
+   desc: string [];
+   gender: string [];
+}
+model AccountOperation.UserFav {
+   id: integer [primary,unique];
+   created: datetime [];
+}
+model AccountOperation.UserFlowQuestion {
+   id: integer [primary,unique];
+   created: datetime [];
+}
+model AccountOperation.UserVote {
+   id: integer [primary,unique];
+   created: datetime [];
+   vote_type: string [];
+}
+relation Account.UserProfile__Question.Answer__author onemany Account.UserProfile Question.Answer;
+relation Question.Question__Question.Answer__question onemany Question.Question Question.Answer;
+relation Account.UserProfile__Question.Answer__collection onemany Account.UserProfile Question.Answer;
+relation Account.UserProfile__Question.Question__author onemany Account.UserProfile Question.Question;
+relation Question.Topic__Question.Question__topic onemany Question.Topic Question.Question;
+relation Question.Topic__Question.Topic__parent_topic onemany Question.Topic Question.Topic;
+relation Account.UserProfile__auth.Group__groups manymany Account.UserProfile auth.Group;
+relation Account.UserProfile__auth.Permission__user_permissions manymany Account.UserProfile auth.Permission;
+relation auth.AbstractUser__auth.Group__groups manymany auth.AbstractUser auth.Group;
+relation auth.AbstractUser__auth.Permission__user_permissions manymany auth.AbstractUser auth.Permission;
+relation Account.UserProfile__auth.Group__groups manymany Account.UserProfile auth.Group;
+relation Account.UserProfile__auth.Permission__user_permissions manymany Account.UserProfile auth.Permission;
+relation Account.UserProfile__Question.Answer__author onemany Account.UserProfile Question.Answer;
+relation Question.Question__Question.Answer__question onemany Question.Question Question.Answer;
+relation Account.UserProfile__Question.Answer__collection onemany Account.UserProfile Question.Answer;
+relation Account.UserProfile__Question.Question__author onemany Account.UserProfile Question.Question;
+relation Question.Topic__Question.Question__topic onemany Question.Topic Question.Question;
+relation Account.UserProfile__auth.Group__groups manymany Account.UserProfile auth.Group;
+relation Account.UserProfile__auth.Permission__user_permissions manymany Account.UserProfile auth.Permission;
+relation Account.UserProfile__AccountOperation.UserFav__user onemany Account.UserProfile AccountOperation.UserFav;
+relation Question.Answer__AccountOperation.UserFav__answer onemany Question.Answer AccountOperation.UserFav;
+relation Account.UserProfile__AccountOperation.UserFlowQuestion__user onemany Account.UserProfile AccountOperation.UserFlowQuestion;
+relation Question.Question__AccountOperation.UserFlowQuestion__question onemany Question.Question AccountOperation.UserFlowQuestion;
+relation Account.UserProfile__AccountOperation.UserVote__user onemany Account.UserProfile AccountOperation.UserVote;
+relation Question.Answer__AccountOperation.UserVote__answer onemany Question.Answer AccountOperation.UserVote;
+// 3 apps, 14 models (106 fields)
+// 25 relations (0 oneone, 17 onemany, 8 manymany)

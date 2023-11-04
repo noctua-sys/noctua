@@ -1,0 +1,36 @@
+{
+    "venvPath": "~/.virtualenvs",
+    "venv": "analyzer",
+    "extraPaths": [
+        ".",
+        "deps/django22",
+        "deps/restframework/",
+    ],
+    // "executionEnvironments": [{
+    //     "root": "deps/django22",
+    //     "extraPaths": [
+    //         "Analyzer"
+    //     ]
+    // }, {
+    //     "root": "deps/restframework",
+    //     "extraPaths": [
+    //         "Analyzer"
+    //     ]
+    // }, {
+    //     "root": "apps/zhihu/backend",
+    //     "extraPaths": [
+    //         "Analyzer",
+    //         "deps/django22",
+    //         "deps/restframework",
+    //     ]
+    // }, {
+    //     "root": "apps/tutorial",
+    // }, {
+    //     "root": "Analyzer",
+    //     "extraPaths": [
+    //         ".",
+    //         "deps/django22/",
+    //         "deps/restframework/",
+    //     ]
+    // }]
+}

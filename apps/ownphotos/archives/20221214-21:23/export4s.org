@@ -1,0 +1,773 @@
+#+startup: overview indent
+* DELETE /api/albums/date/list/<pk>/ has 1 effectful paths
+** Path 1
+*** Number of args = 1
+-  pk Type.INT
+*** The path condition is a conjuction of 1 clauses
+-  exists[api.AlbumDate](objtoref[api.AlbumDate](deref[api.AlbumDate](orderby[api.AlbumDate, date, desc](all[api.AlbumDate]),arg_pk)))
+*** Number of 1 effects
+-  delete[api.AlbumDate](singleton[api.AlbumDate](deref[api.AlbumDate](orderby[api.AlbumDate, date, desc](all[api.AlbumDate]),arg_pk)))
+* POST /api/albums/thing/list/ has 1 effectful paths
+** Path 1
+*** Number of args = 2
+-  request_data_title Type.STR
+-  obj1_id Type.INT
+*** The path condition is a conjuction of 2 clauses
+-  not((request_data_title)==(''))
+-  not(exists[api.AlbumThing](objtoref[api.AlbumThing](obj1)))
+*** Number of 1 effects
+-  update[api.AlbumThing](singleton[api.AlbumThing](obj1))
+* POST /api/albums/place/list/ has 1 effectful paths
+** Path 1
+*** Number of args = 3
+-  request_data_geolocation_level Type.INT
+-  request_data_title Type.STR
+-  obj1_id Type.INT
+*** The path condition is a conjuction of 2 clauses
+-  not((request_data_title)==(''))
+-  not(exists[api.AlbumPlace](objtoref[api.AlbumPlace](obj1)))
+*** Number of 1 effects
+-  update[api.AlbumPlace](singleton[api.AlbumPlace](obj1))
+* POST /api/albums/user/list/ has 2 effectful paths
+** Path 1
+*** Number of args = 4
+-  request_data_favorited Type.BOOL
+-  request_data_title Type.STR
+-  obj1_id Type.INT
+-  __now Type.INT
+*** The path condition is a conjuction of 4 clauses
+-  not(request_data_favorited)
+-  not((request_data_title)==(''))
+-  not(exists[api.AlbumUser](objtoref[api.AlbumUser](obj1)))
+-  not(request_data_favorited)
+*** Number of 1 effects
+-  update[api.AlbumUser](singleton[api.AlbumUser](obj1))
+** Path 2
+*** Number of args = 4
+-  request_data_favorited Type.BOOL
+-  request_data_title Type.STR
+-  obj1_id Type.INT
+-  __now Type.INT
+*** The path condition is a conjuction of 3 clauses
+-  not(exists[api.AlbumUser](objtoref[api.AlbumUser](obj1)))
+-  not((request_data_title)==(''))
+-  request_data_favorited
+*** Number of 1 effects
+-  update[api.AlbumUser](singleton[api.AlbumUser](obj1))
+* POST /api/albums/user/shared/tome/ has 2 effectful paths
+** Path 1
+*** Number of args = 4
+-  request_data_favorited Type.BOOL
+-  request_data_title Type.STR
+-  obj1_id Type.INT
+-  __now Type.INT
+*** The path condition is a conjuction of 3 clauses
+-  request_data_favorited
+-  not((request_data_title)==(''))
+-  not(exists[api.AlbumUser](objtoref[api.AlbumUser](obj1)))
+*** Number of 1 effects
+-  update[api.AlbumUser](singleton[api.AlbumUser](obj1))
+** Path 2
+*** Number of args = 4
+-  request_data_favorited Type.BOOL
+-  request_data_title Type.STR
+-  obj1_id Type.INT
+-  __now Type.INT
+*** The path condition is a conjuction of 4 clauses
+-  not(request_data_favorited)
+-  not((request_data_title)==(''))
+-  not(exists[api.AlbumUser](objtoref[api.AlbumUser](obj1)))
+-  not(request_data_favorited)
+*** Number of 1 effects
+-  update[api.AlbumUser](singleton[api.AlbumUser](obj1))
+* POST /api/albums/user/shared/fromme/ has 2 effectful paths
+** Path 1
+*** Number of args = 4
+-  request_data_favorited Type.BOOL
+-  request_data_title Type.STR
+-  obj1_id Type.INT
+-  __now Type.INT
+*** The path condition is a conjuction of 4 clauses
+-  not(request_data_favorited)
+-  not(request_data_favorited)
+-  not((request_data_title)==(''))
+-  not(exists[api.AlbumUser](objtoref[api.AlbumUser](obj1)))
+*** Number of 1 effects
+-  update[api.AlbumUser](singleton[api.AlbumUser](obj1))
+** Path 2
+*** Number of args = 4
+-  request_data_favorited Type.BOOL
+-  request_data_title Type.STR
+-  obj1_id Type.INT
+-  __now Type.INT
+*** The path condition is a conjuction of 3 clauses
+-  not((request_data_title)==(''))
+-  not(exists[api.AlbumUser](objtoref[api.AlbumUser](obj1)))
+-  request_data_favorited
+*** Number of 1 effects
+-  update[api.AlbumUser](singleton[api.AlbumUser](obj1))
+* POST /api/albums/date/ has 2 effectful paths
+** Path 1
+*** Number of args = 4
+-  request_data_title Type.STR
+-  request_data_date Type.INT
+-  request_data_favorited Type.BOOL
+-  obj1_id Type.INT
+*** The path condition is a conjuction of 3 clauses
+-  not((request_data_title)==(''))
+-  request_data_favorited
+-  not(exists[api.AlbumDate](objtoref[api.AlbumDate](obj1)))
+*** Number of 1 effects
+-  update[api.AlbumDate](singleton[api.AlbumDate](obj1))
+** Path 2
+*** Number of args = 4
+-  request_data_title Type.STR
+-  request_data_date Type.INT
+-  request_data_favorited Type.BOOL
+-  obj1_id Type.INT
+*** The path condition is a conjuction of 4 clauses
+-  not(request_data_favorited)
+-  not(request_data_favorited)
+-  not(exists[api.AlbumDate](objtoref[api.AlbumDate](obj1)))
+-  not((request_data_title)==(''))
+*** Number of 1 effects
+-  update[api.AlbumDate](singleton[api.AlbumDate](obj1))
+* DELETE /api/albums/date/<pk>/ has 1 effectful paths
+** Path 1
+*** Number of args = 1
+-  pk Type.INT
+*** The path condition is a conjuction of 1 clauses
+-  exists[api.AlbumDate](objtoref[api.AlbumDate](deref[api.AlbumDate](orderby[api.AlbumDate, date, desc](all[api.AlbumDate]),arg_pk)))
+*** Number of 1 effects
+-  delete[api.AlbumDate](singleton[api.AlbumDate](deref[api.AlbumDate](orderby[api.AlbumDate, date, desc](all[api.AlbumDate]),arg_pk)))
+* POST /api/albums/thing/ has 1 effectful paths
+** Path 1
+*** Number of args = 2
+-  request_data_title Type.STR
+-  obj1_id Type.INT
+*** The path condition is a conjuction of 2 clauses
+-  not((request_data_title)==(''))
+-  not(exists[api.AlbumThing](objtoref[api.AlbumThing](obj1)))
+*** Number of 1 effects
+-  update[api.AlbumThing](singleton[api.AlbumThing](obj1))
+* POST /api/albums/place/ has 1 effectful paths
+** Path 1
+*** Number of args = 2
+-  request_data_title Type.STR
+-  obj1_id Type.INT
+*** The path condition is a conjuction of 2 clauses
+-  not((request_data_title)==(''))
+-  not(exists[api.AlbumPlace](objtoref[api.AlbumPlace](obj1)))
+*** Number of 1 effects
+-  update[api.AlbumPlace](singleton[api.AlbumPlace](obj1))
+* POST /api/albums/user/ has 2 effectful paths
+** Path 1
+*** Number of args = 4
+-  request_data_title Type.STR
+-  request_data_favorited Type.BOOL
+-  obj1_id Type.INT
+-  __now Type.INT
+*** The path condition is a conjuction of 4 clauses
+-  not(request_data_favorited)
+-  not(request_data_favorited)
+-  not(exists[api.AlbumUser](objtoref[api.AlbumUser](obj1)))
+-  not((request_data_title)==(''))
+*** Number of 1 effects
+-  update[api.AlbumUser](singleton[api.AlbumUser](obj1))
+** Path 2
+*** Number of args = 4
+-  request_data_title Type.STR
+-  request_data_favorited Type.BOOL
+-  obj1_id Type.INT
+-  __now Type.INT
+*** The path condition is a conjuction of 3 clauses
+-  not((request_data_title)==(''))
+-  not(exists[api.AlbumUser](objtoref[api.AlbumUser](obj1)))
+-  request_data_favorited
+*** Number of 1 effects
+-  update[api.AlbumUser](singleton[api.AlbumUser](obj1))
+* POST /api/photos/shared/tome/ has 8 effectful paths
+** Path 1
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 7 clauses
+-  not(request_data_public)
+-  request_data_hidden
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not((request_data_image_hash)==(''))
+-  not(request_data_public)
+-  not(request_data_favorited)
+-  not(request_data_favorited)
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 2
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 7 clauses
+-  not(request_data_favorited)
+-  not(request_data_hidden)
+-  not(request_data_favorited)
+-  request_data_public
+-  not(request_data_hidden)
+-  not((request_data_image_hash)==(''))
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 3
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 7 clauses
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not(request_data_hidden)
+-  not(request_data_public)
+-  request_data_favorited
+-  not(request_data_public)
+-  not((request_data_image_hash)==(''))
+-  not(request_data_hidden)
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 4
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 5 clauses
+-  request_data_public
+-  request_data_hidden
+-  request_data_favorited
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not((request_data_image_hash)==(''))
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 5
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 6 clauses
+-  request_data_favorited
+-  not(request_data_hidden)
+-  request_data_public
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not((request_data_image_hash)==(''))
+-  not(request_data_hidden)
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 6
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 6 clauses
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not((request_data_image_hash)==(''))
+-  not(request_data_public)
+-  not(request_data_public)
+-  request_data_hidden
+-  request_data_favorited
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 7
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 8 clauses
+-  not(request_data_public)
+-  not(request_data_hidden)
+-  not(request_data_public)
+-  not((request_data_image_hash)==(''))
+-  not(request_data_favorited)
+-  not(request_data_favorited)
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not(request_data_hidden)
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 8
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 6 clauses
+-  request_data_hidden
+-  not((request_data_image_hash)==(''))
+-  not(request_data_favorited)
+-  not(request_data_favorited)
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  request_data_public
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+* POST /api/photos/shared/fromme/ has 8 effectful paths
+** Path 1
+*** Number of args = 1
+-  obj1_id Type.INT
+*** The path condition is a conjuction of 4 clauses
+-  getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))
+-  getf[api.Photo](public, setf[api.Photo](exif_timestamp, getf[api.Photo](exif_timestamp, setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))), setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))))
+-  getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))
+-  not(exists[api.Photo_shared_to](objtoref[api.Photo_shared_to](obj1)))
+*** Number of 1 effects
+-  update[api.Photo_shared_to](singleton[api.Photo_shared_to](obj1))
+** Path 2
+*** Number of args = 1
+-  obj1_id Type.INT
+*** The path condition is a conjuction of 4 clauses
+-  not(exists[api.Photo_shared_to](objtoref[api.Photo_shared_to](obj1)))
+-  getf[api.Photo](public, setf[api.Photo](exif_timestamp, getf[api.Photo](exif_timestamp, setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))), setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))))
+-  not(getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))
+-  getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))
+*** Number of 1 effects
+-  update[api.Photo_shared_to](singleton[api.Photo_shared_to](obj1))
+** Path 3
+*** Number of args = 1
+-  obj1_id Type.INT
+*** The path condition is a conjuction of 4 clauses
+-  not(getf[api.Photo](public, setf[api.Photo](exif_timestamp, getf[api.Photo](exif_timestamp, setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))), setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))))))
+-  getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))
+-  getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))
+-  not(exists[api.Photo_shared_to](objtoref[api.Photo_shared_to](obj1)))
+*** Number of 1 effects
+-  update[api.Photo_shared_to](singleton[api.Photo_shared_to](obj1))
+** Path 4
+*** Number of args = 1
+-  obj1_id Type.INT
+*** The path condition is a conjuction of 4 clauses
+-  not(getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))))
+-  not(getf[api.Photo](public, setf[api.Photo](exif_timestamp, getf[api.Photo](exif_timestamp, setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))), setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))))))
+-  getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))
+-  not(exists[api.Photo_shared_to](objtoref[api.Photo_shared_to](obj1)))
+*** Number of 1 effects
+-  update[api.Photo_shared_to](singleton[api.Photo_shared_to](obj1))
+** Path 5
+*** Number of args = 1
+-  obj1_id Type.INT
+*** The path condition is a conjuction of 4 clauses
+-  not(getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))
+-  not(getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))))
+-  getf[api.Photo](public, setf[api.Photo](exif_timestamp, getf[api.Photo](exif_timestamp, setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))), setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))))
+-  not(exists[api.Photo_shared_to](objtoref[api.Photo_shared_to](obj1)))
+*** Number of 1 effects
+-  update[api.Photo_shared_to](singleton[api.Photo_shared_to](obj1))
+** Path 6
+*** Number of args = 1
+-  obj1_id Type.INT
+*** The path condition is a conjuction of 4 clauses
+-  not(exists[api.Photo_shared_to](objtoref[api.Photo_shared_to](obj1)))
+-  getf[api.Photo](public, setf[api.Photo](exif_timestamp, getf[api.Photo](exif_timestamp, setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))), setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))))
+-  not(getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))))
+-  getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))
+*** Number of 1 effects
+-  update[api.Photo_shared_to](singleton[api.Photo_shared_to](obj1))
+** Path 7
+*** Number of args = 1
+-  obj1_id Type.INT
+*** The path condition is a conjuction of 4 clauses
+-  not(getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))
+-  not(getf[api.Photo](public, setf[api.Photo](exif_timestamp, getf[api.Photo](exif_timestamp, setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))), setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))))))
+-  not(exists[api.Photo_shared_to](objtoref[api.Photo_shared_to](obj1)))
+-  not(getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))))
+*** Number of 1 effects
+-  update[api.Photo_shared_to](singleton[api.Photo_shared_to](obj1))
+** Path 8
+*** Number of args = 1
+-  obj1_id Type.INT
+*** The path condition is a conjuction of 4 clauses
+-  not(getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))
+-  getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))
+-  not(getf[api.Photo](public, setf[api.Photo](exif_timestamp, getf[api.Photo](exif_timestamp, setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))))), setf[api.Photo](hidden, getf[api.Photo](hidden, setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))), setf[api.Photo](favorited, getf[api.Photo](favorited, setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))'))))), setf[api.Photo](image_hash, getf[api.Photo](image_hash, any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))), any[api.Photo](follow[forward](('api.Photo_shared_to__api.Photo__photo', 'singleton[api.Photo_shared_to](setf[api.Photo_shared_to](id, obj1_id, obj1))')))))))))
+-  not(exists[api.Photo_shared_to](objtoref[api.Photo_shared_to](obj1)))
+*** Number of 1 effects
+-  update[api.Photo_shared_to](singleton[api.Photo_shared_to](obj1))
+* POST /api/photos/edit/ has 4 effectful paths
+** Path 1
+*** Number of args = 4
+-  request_data_image_hash Type.STR
+-  request_data_hidden Type.BOOL
+-  request_data_favorited Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 5 clauses
+-  not(request_data_favorited)
+-  not(request_data_favorited)
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not((request_data_image_hash)==(''))
+-  request_data_hidden
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 2
+*** Number of args = 4
+-  request_data_image_hash Type.STR
+-  request_data_hidden Type.BOOL
+-  request_data_favorited Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 6 clauses
+-  not(request_data_hidden)
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not((request_data_image_hash)==(''))
+-  not(request_data_hidden)
+-  not(request_data_favorited)
+-  not(request_data_favorited)
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 3
+*** Number of args = 4
+-  request_data_image_hash Type.STR
+-  request_data_hidden Type.BOOL
+-  request_data_favorited Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 5 clauses
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not(request_data_hidden)
+-  not((request_data_image_hash)==(''))
+-  not(request_data_hidden)
+-  request_data_favorited
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 4
+*** Number of args = 4
+-  request_data_image_hash Type.STR
+-  request_data_hidden Type.BOOL
+-  request_data_favorited Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 4 clauses
+-  not((request_data_image_hash)==(''))
+-  request_data_favorited
+-  request_data_hidden
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+* DELETE /api/photos/list/<pk>/ has 1 effectful paths
+** Path 1
+*** Number of args = 1
+-  pk Type.INT
+*** The path condition is a conjuction of 1 clauses
+-  exists[api.Photo](objtoref[api.Photo](deref[api.Photo](orderby[api.Photo, exif_timestamp, desc](all[api.Photo]),arg_pk)))
+*** Number of 1 effects
+-  delete[api.Photo](singleton[api.Photo](deref[api.Photo](orderby[api.Photo, exif_timestamp, desc](all[api.Photo]),arg_pk)))
+* POST /api/photos/searchlist/ has 8 effectful paths
+** Path 1
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 7 clauses
+-  not(request_data_favorited)
+-  not(request_data_favorited)
+-  request_data_hidden
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not((request_data_image_hash)==(''))
+-  not(request_data_public)
+-  not(request_data_public)
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 2
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 5 clauses
+-  request_data_favorited
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  request_data_public
+-  not((request_data_image_hash)==(''))
+-  request_data_hidden
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 3
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 6 clauses
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  request_data_favorited
+-  request_data_public
+-  not(request_data_hidden)
+-  not((request_data_image_hash)==(''))
+-  not(request_data_hidden)
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 4
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 7 clauses
+-  not((request_data_image_hash)==(''))
+-  not(request_data_hidden)
+-  not(request_data_favorited)
+-  not(request_data_favorited)
+-  not(request_data_hidden)
+-  request_data_public
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 5
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 6 clauses
+-  not(request_data_public)
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not((request_data_image_hash)==(''))
+-  not(request_data_public)
+-  request_data_favorited
+-  request_data_hidden
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 6
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 8 clauses
+-  not(request_data_favorited)
+-  not(request_data_hidden)
+-  not(request_data_hidden)
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not(request_data_public)
+-  not(request_data_public)
+-  not(request_data_favorited)
+-  not((request_data_image_hash)==(''))
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 7
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 6 clauses
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  request_data_hidden
+-  not(request_data_favorited)
+-  request_data_public
+-  not(request_data_favorited)
+-  not((request_data_image_hash)==(''))
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 8
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 7 clauses
+-  not(request_data_hidden)
+-  not(request_data_hidden)
+-  not(request_data_public)
+-  not((request_data_image_hash)==(''))
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  request_data_favorited
+-  not(request_data_public)
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+* POST /api/photos/public/ has 8 effectful paths
+** Path 1
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 7 clauses
+-  not(request_data_public)
+-  not(request_data_public)
+-  not((request_data_image_hash)==(''))
+-  not(request_data_favorited)
+-  request_data_hidden
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not(request_data_favorited)
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 2
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 6 clauses
+-  request_data_favorited
+-  not(request_data_public)
+-  request_data_hidden
+-  not((request_data_image_hash)==(''))
+-  not(request_data_public)
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 3
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 6 clauses
+-  not(request_data_hidden)
+-  request_data_favorited
+-  request_data_public
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not((request_data_image_hash)==(''))
+-  not(request_data_hidden)
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 4
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 8 clauses
+-  not(request_data_hidden)
+-  not((request_data_image_hash)==(''))
+-  not(request_data_hidden)
+-  not(request_data_favorited)
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not(request_data_public)
+-  not(request_data_favorited)
+-  not(request_data_public)
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 5
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 7 clauses
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not(request_data_hidden)
+-  not(request_data_hidden)
+-  request_data_public
+-  not((request_data_image_hash)==(''))
+-  not(request_data_favorited)
+-  not(request_data_favorited)
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 6
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 5 clauses
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  request_data_favorited
+-  request_data_public
+-  request_data_hidden
+-  not((request_data_image_hash)==(''))
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 7
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 6 clauses
+-  request_data_hidden
+-  not(request_data_favorited)
+-  not(request_data_favorited)
+-  request_data_public
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not((request_data_image_hash)==(''))
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+** Path 8
+*** Number of args = 6
+-  request_data_image_hash Type.STR
+-  request_data_favorited Type.BOOL
+-  request_data_hidden Type.BOOL
+-  request_data_exif_timestamp Type.INT
+-  request_data_public Type.BOOL
+-  __now Type.INT
+*** The path condition is a conjuction of 7 clauses
+-  not(request_data_public)
+-  not(request_data_hidden)
+-  request_data_favorited
+-  not(request_data_hidden)
+-  not(request_data_public)
+-  not(exists[api.Photo](objtoref[api.Photo](obj1)))
+-  not((request_data_image_hash)==(''))
+*** Number of 1 effects
+-  update[api.Photo](singleton[api.Photo](obj1))
+* DELETE /api/faces/<pk>/ has 1 effectful paths
+** Path 1
+*** Number of args = 1
+-  pk Type.INT
+*** The path condition is a conjuction of 1 clauses
+-  exists[api.Face](objtoref[api.Face](deref[api.Face](orderby[api.Face, id, asc](all[api.Face]),arg_pk)))
+*** Number of 1 effects
+-  delete[api.Face](singleton[api.Face](deref[api.Face](orderby[api.Face, id, asc](all[api.Face]),arg_pk)))
+* DELETE /api/jobs/<pk>/ has 1 effectful paths
+** Path 1
+*** Number of args = 1
+-  pk Type.INT
+*** The path condition is a conjuction of 1 clauses
+-  exists[api.LongRunningJob](objtoref[api.LongRunningJob](deref[api.LongRunningJob](orderby[api.LongRunningJob, started_at, desc](all[api.LongRunningJob]),arg_pk)))
+*** Number of 1 effects
+-  delete[api.LongRunningJob](singleton[api.LongRunningJob](deref[api.LongRunningJob](orderby[api.LongRunningJob, started_at, desc](all[api.LongRunningJob]),arg_pk)))

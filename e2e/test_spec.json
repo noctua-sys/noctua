@@ -1,0 +1,45 @@
+{
+    "num_sites": 3,
+    "write_ops": ["foo", "bar", "baz"],
+    "read_ops": ["query", "list"],
+    "restriction_set": [
+        ["foo", "foo"],
+        ["foo", "bar"],
+        ["bar", "baz"]
+    ],
+    "endpoints": {
+        "foo": {
+            "method": "POST",
+            "url": "http://127.0.0.1:4000/foo/",
+            "data": {
+                "user_id": "randint",
+                "user_name": "randshortstr"
+            }
+        },
+        "bar": {
+            "method": "POST",
+            "url": "http://127.0.0.1:4000/bar/",
+            "data": {
+                "id": "randint",
+                "user_name": "randshortstr"
+            }
+        },
+        "baz": {
+            "method": "POST",
+            "url": "http://127.0.0.1:4000/baz/{}/",
+            "query_params": [ "randshortstr" ],
+            "data": {
+                "id": "randint",
+                "user_name": "randshortstr"
+            }
+        },
+        "query": {
+            "method": "GET",
+            "endpoint": "http://127.0.0.1:4000/view/{}/"
+        },
+        "list": {
+            "method": "GET",
+            "endpoint": "http://127.0.0.1:4000/view/"
+        }
+    }
+}
